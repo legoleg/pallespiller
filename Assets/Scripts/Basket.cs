@@ -9,10 +9,6 @@ public class Basket : MonoBehaviour
 	void Start ()
 	{
 		spawns = GameObject.FindWithTag("GameController").GetComponent<GameController>().spawns;
-//		iTween.MoveTo (this.gameObject, iTween.Hash (
-//			"position", new Vector3 (spawns [2].transform.position.x, -1f, 0f), 
-//			"easetype", iTween.EaseType.spring, 
-//			"time", 2f));
 	}
 
 	void Update ()
@@ -49,13 +45,19 @@ public class Basket : MonoBehaviour
 
 	void Move ()
 	{
+		if (GameController.done) {
+			return;
+		}
+
 		if (!GameController.playing) {
-			Instructions.Hide();
+			HideGUIText.Hide();
+			LoadLevelButton.Hide();
 			GameController.playing = true;
 		}
+
 		iTween.MoveTo (this.gameObject, iTween.Hash (
 			"position", new Vector3 (spawns [currPos].transform.position.x, -1f, 0f), 
 			"easetype", iTween.EaseType.spring, 
-			"time", .5f));
+			"time", .4f));
 	}
 }

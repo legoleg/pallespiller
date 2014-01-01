@@ -11,11 +11,15 @@ public class GameController : MonoBehaviour
 	public static int bluePointsLost = 0;
 	public static int redPointsLost = 0;
 	public static bool playing = false;
+	public static bool done = false;
 
 	public GameObject blueTxt,redTxt,blueTxtLost,redTxtLost;
 	public GameObject[] objectsToSpawn;
 	public GameObject[] spawns;
 	public float spawnRate = .5f;
+
+	public AudioClip inGame, postGame;
+
 
 	void Update ()
 	{
@@ -47,7 +51,22 @@ public class GameController : MonoBehaviour
 	IEnumerator GameTimer ()
 	{
 		yield return new WaitForSeconds (timeLimit);
+
+		playing = false;
+		done = true;
+		iTween.MoveTo (GameObject.FindGameObjectWithTag("Player"), iTween.Hash (
+			"position", new Vector3 (0, 0f, -7f), 
+			"easetype", iTween.EaseType.easeInOutBack, 
+			"time", 1f));
+		Music.FadeOut(.9f);
+		yield return new WaitForSeconds (1f);
+
+		Music.go.audio.clip = postGame;
+		Music.FadeIn(.5f);
+		LoadLevelButton.Show();
+		yield return new WaitForSeconds (postGame.length + .5f);
+
 		// sum points
-		Application.LoadLevel ("score");
+		Application.LoadLevel ("mainMenu");
 	}
 }
