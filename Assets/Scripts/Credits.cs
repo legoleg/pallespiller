@@ -5,8 +5,9 @@ using System;
 [ExecuteInEditMode]
 public class Credits : MonoBehaviour {
 
-	string credits = ("The game is made by Nicolaj Schweitz (legoleg.com)\n" +
-	                  "Happy New Year to: " +
+	string credits = ("af Nicolaj Schweitz (legoleg.com) " +
+	                  "med musik af Kevin MacLeod (incompetech.com): Organ Filler, Brightly Fancy, Beach Party\n" +
+	                  "Godt Nytår til " +
 	                  "Albert, " +
 	                  "Alma, " +
 	                  "Ellen, " +
@@ -23,8 +24,7 @@ public class Credits : MonoBehaviour {
 	                  "Sigrid, " +
 	                  "Tina, " +
 	                  "Trine, " +
-	                  "& everyone else!\n" +
-	                  "The music is made by Kevin MacLeod (incompetech.com): Organ Filler (main menu), Brightly Fancy (in-game), Beach Party (score)\n");
+	                  "og alle jer andre!\n");
 
 	void Update ()
 	{

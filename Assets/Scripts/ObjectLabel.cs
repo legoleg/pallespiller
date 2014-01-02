@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent (typeof (GUIText))]
+[ExecuteInEditMode]
 public class ObjectLabel : MonoBehaviour {
 	
 	public Transform target;  // Object that this label should follow
