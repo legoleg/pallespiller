@@ -10,13 +10,13 @@ public class HideGUIText : MonoBehaviour {
 		go = gameObject;
 	}
 	
-	public static void Show ()
+	public static void Show (float time)
 	{
-		iTween.MoveFrom (go, iTween.Hash ("position", go.transform.position + (Vector3.up * 2), "easetype", iTween.EaseType.easeOutBack, "time", .25f));
+		iTween.MoveFrom (go, iTween.Hash ("position", go.transform.position + (Vector3.up * 2), "easetype", iTween.EaseType.easeOutBack, "time", time));
 	}
 	
-	public static void Hide ()
+	public static void Hide (float time)
 	{
-		iTween.MoveTo (go, iTween.Hash ("position", go.transform.position + (Vector3.up * 2), "easetype", iTween.EaseType.easeInBack, "time", .25f));
+		iTween.MoveTo (go, iTween.Hash ("position", go.transform.position + (Vector3.up * 2), "easetype", iTween.EaseType.easeInBack, "time", time));
 	}
 }

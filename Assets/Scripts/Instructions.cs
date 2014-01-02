@@ -4,10 +4,9 @@ using System.Collections;
 public class Instructions : MonoBehaviour {
 
 	string instructions = 
-		"Pack your Pills!\n" +
-		"Use arrow keys to move the box.\n" +
-		"Catch pills with the box.\n\n" +
-		"<    >";
+		"<   Pak Pillerne!   >\n" +
+		"Flyt kassen med pilene.\n" +
+		"Grib pillerne med kassen.\n\n";
 
 
 	void Update () {

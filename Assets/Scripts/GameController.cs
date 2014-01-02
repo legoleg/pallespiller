@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
 	public float spawnRate = .5f;
 
 	public AudioClip inGame, postGame;
+	public GameObject loadLvlBtn;
 
 
 	void Update ()
@@ -31,6 +32,13 @@ public class GameController : MonoBehaviour
 
 	void Start ()
 	{
+		bluePoints = 0;
+		redPoints = 0;
+		bluePointsLost = 0;
+		redPointsLost = 0;
+		playing = false;
+		done = false;
+
 		StartCoroutine (SpawnRoutine());
 		StartCoroutine (GameTimer());
 	}
@@ -63,7 +71,7 @@ public class GameController : MonoBehaviour
 
 		Music.go.audio.clip = postGame;
 		Music.FadeIn(.5f);
-		LoadLevelButton.Show();
+		loadLvlBtn.GetComponent<LoadLevelButton>().Show(.1f);
 		yield return new WaitForSeconds (postGame.length + .5f);
 
 		// sum points

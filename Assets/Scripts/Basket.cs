@@ -5,6 +5,7 @@ public class Basket : MonoBehaviour
 {
 	int currPos = 2;
 	public GameObject[] spawns;
+	public GameObject loadLvlBtn;
 
 	void Start ()
 	{
@@ -50,8 +51,8 @@ public class Basket : MonoBehaviour
 		}
 
 		if (!GameController.playing) {
-			HideGUIText.Hide();
-			LoadLevelButton.Hide();
+			HideGUIText.Hide(.1f);
+			loadLvlBtn.GetComponent<LoadLevelButton>().Hide(.1f);
 			GameController.playing = true;
 		}
 

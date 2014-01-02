@@ -5,25 +5,16 @@ public class LoadLevelButton : MonoBehaviour {
 
 	public string levelToLoad;
 
-	static GameObject go;
-	
-	void Start ()
-	{
-		go = gameObject;
-	}
-	
-	public static void Show ()
-	{
-		LoadLevelButtonGUITxt.Show();
-		iTween.MoveTo (go, iTween.Hash ("position", new Vector3 (0f, 1.5f, -8f), "easetype", iTween.EaseType.easeOutBack, "time", .25f));
-	}
-	
-	public static void Hide ()
-	{
-		LoadLevelButtonGUITxt.Hide();
-		iTween.MoveTo (go, iTween.Hash ("position", new Vector3 (0f, 3.5f, -8f), "easetype", iTween.EaseType.easeInBack, "time", .25f));
-	}
 
+	public void Show (float time)
+	{
+		iTween.MoveTo (gameObject, iTween.Hash ("position", new Vector3 (0f, 1.5f, -8f), "easetype", iTween.EaseType.easeOutBack, "time", time));
+	}
+	
+	public void Hide (float time)
+	{
+		iTween.MoveTo (gameObject, iTween.Hash ("position", new Vector3 (0f, 3.5f, -8f), "easetype", iTween.EaseType.easeInBack, "time", time));
+	}
 
 	void OnMouseEnter ()
 	{
@@ -45,6 +36,7 @@ public class LoadLevelButton : MonoBehaviour {
 		iTween.ScaleTo (gameObject, iTween.Hash("scale", Vector3.one * .7f, "time", .1f, "easetype", iTween.EaseType.easeInOutBack));
 		yield return new WaitForSeconds (.1f);
 
+		Hide(.1f);
 		yield return new WaitForSeconds (.3f);
 		Application.LoadLevel(levelToLoad);
 	}
