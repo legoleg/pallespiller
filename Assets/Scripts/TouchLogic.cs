@@ -30,7 +30,7 @@ public class TouchLogic : MonoBehaviour
 				currTouch = i;
 				Debug.Log(currTouch);
 				//executes this code for current touch (i) on screen
-				if(this.guiTexture != null && (this.guiTexture.HitTest(Input.GetTouch(i).position)))
+				if(this.GetComponent<GUITexture>() != null && (this.GetComponent<GUITexture>().HitTest(Input.GetTouch(i).position)))
 				{
 					//if current touch hits our guitexture, run this code
 					if(Input.GetTouch(i).phase == TouchPhase.Began)

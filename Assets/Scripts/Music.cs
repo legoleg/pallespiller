@@ -16,7 +16,7 @@ public class Music : MonoBehaviour {
 	public static void FadeIn (float time)
 	{
 		iTween.AudioTo (go, 1f, 1f, time);
-		go.audio.Play ();
+		go.GetComponent<AudioSource>().Play ();
 	}
 
 	public static void FadeOut (float time)

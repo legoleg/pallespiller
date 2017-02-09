@@ -24,10 +24,10 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
-		redTxt.guiText.text = redPoints.ToString();
-		blueTxt.guiText.text = bluePoints.ToString();
-		redTxtLost.guiText.text = redPointsLost.ToString();
-		blueTxtLost.guiText.text = bluePointsLost.ToString();
+		redTxt.GetComponent<GUIText>().text = redPoints.ToString();
+		blueTxt.GetComponent<GUIText>().text = bluePoints.ToString();
+		redTxtLost.GetComponent<GUIText>().text = redPointsLost.ToString();
+		blueTxtLost.GetComponent<GUIText>().text = bluePointsLost.ToString();
 	}
 
 	void Start ()
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
 		GameObject spawnedObj = (GameObject)Instantiate (objectsToSpawn[Random.Range(0,objectsToSpawn.Length)], 
 		             spawns[Random.Range(0,spawns.Length)].transform.position, 
 		             Random.rotation);
-		spawnedObj.rigidbody.AddTorque(Random.insideUnitSphere, ForceMode.Impulse);
+		spawnedObj.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere, ForceMode.Impulse);
 
 		//wait and loop
 		yield return new WaitForSeconds (spawnRate);
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
 		Music.FadeOut(.9f);
 		yield return new WaitForSeconds (1f);
 
-		Music.go.audio.clip = postGame;
+		Music.go.GetComponent<AudioSource>().clip = postGame;
 		Music.FadeIn(.5f);
 		loadLvlBtn.GetComponent<LoadLevelButton>().Show(.1f);
 		yield return new WaitForSeconds (postGame.length + .5f);

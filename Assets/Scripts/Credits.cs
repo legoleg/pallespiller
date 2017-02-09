@@ -28,6 +28,6 @@ public class Credits : MonoBehaviour {
 
 	void Update ()
 	{
-		guiText.text = credits;
+		GetComponent<GUIText>().text = credits;
 	}
 }

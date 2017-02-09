@@ -10,7 +10,7 @@ public class Instructions : MonoBehaviour {
 
 
 	void Update () {
-		guiText.text = instructions;
+		GetComponent<GUIText>().text = instructions;
 	}
 
 //	static GameObject go;
